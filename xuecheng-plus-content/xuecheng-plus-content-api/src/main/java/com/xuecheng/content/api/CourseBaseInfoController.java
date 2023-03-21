@@ -2,15 +2,17 @@ package com.xuecheng.content.api;
 
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
+import com.xuecheng.content.model.dto.AddCourseDto;
+import com.xuecheng.content.model.dto.CourseBaseInfoDto;
+import com.xuecheng.content.model.dto.EditCourseDto;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
 import com.xuecheng.content.model.po.CourseBase;
 import com.xuecheng.content.service.CourseBaseInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Mr.M
@@ -35,5 +37,29 @@ public class CourseBaseInfoController {
          return  courseBasePageResult;
 
     }
+
+    @ApiOperation("新增课程接口")
+    @PostMapping("/course") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public CourseBaseInfoDto createCourseBase(@RequestBody @Validated AddCourseDto addCourseDto){
+        CourseBaseInfoDto courseBase = courseBaseInfoService.createCourseBase(1232141425L, addCourseDto);
+        return courseBase;
+    }
+
+
+    @ApiOperation("根据id查询接口")
+    @GetMapping("/course/{courseId}") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public CourseBaseInfoDto getCourseBaseById(@PathVariable Long courseId){
+
+        return courseBaseInfoService.getCourseBaseInfoDto(courseId);
+    }
+
+    @ApiOperation("修改课程")
+    @PutMapping("/course") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public CourseBaseInfoDto modifyCourseBase(@RequestBody  EditCourseDto editCourseDto){//@RequestBody将json转java对象
+         Long id = 1232141425L;
+        return courseBaseInfoService.updateCourseBase(id,editCourseDto);
+    }
+
+
 
 }

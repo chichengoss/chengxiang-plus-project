@@ -1,7 +1,11 @@
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+###
 
 
 ### 查询课程信息
-POST http://localhost:63040/content/course/list?pageNo=1&pageSize=2
+POST {{content_host}}/content/course/list?pageNo=1&pageSize=2
 Content-Type: application/json
 #这是json数据
 
@@ -11,5 +15,44 @@ Content-Type: application/json
   "publishStatus": ""
 }
 
+### 查询客场分类
+GET {{content_host}}/content/course-category/tree-nodes
 
+<> 2023-03-18T213203.200.json
+
+
+###
+POST {{content_host}}/content/course
+Content-Type: application/json
+
+{
+  "charge": "201000",
+  "price": 0,
+  "originalPrice":0,
+  "qq": "22333",
+  "wechat": "223344",
+  "phone": "13333333",
+  "validDays": 365,
+  "mt": "1-1",
+  "st": "1-1-1",
+  "name": "测试课程103",
+  "pic": "ffdd",
+  "teachmode": "200002",
+  "users": "初级人员",
+  "tags": "tagtest",
+  "grade": "204001",
+  "description": "高级"
+}
+
+<> 2023-03-20T162450.500.json
+
+###
+GET {{content_host}}/content/course/40
+Content-Type: application/json
+
+###
+PUT {{content_host}}/content/course
+
+###
+GET {{content_host}}/content/teachplan/117/tree-nodes
 
