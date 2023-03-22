@@ -32,7 +32,19 @@ public class TeachplanController {
           teachplanService.saveTeachPlan(saveTeachplanDto);
     }
 
+    //http://localhost:8601/api/content/teachplan/263
+    @ApiOperation("删除课程章节信息")
+    @DeleteMapping("/teachplan/{teachplanid}") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public void saveTeachplan(@PathVariable Long teachplanid){//@RequestBody将json转java对象
+        teachplanService.deleteTeachPlan(teachplanid);
+    }
 
-    
 
+    //http://localhost:8601/api/content/teachplan/moveup/325
+    @ApiOperation("移动课程章节信息")
+    @PostMapping("/teachplan/{move}/{teachplanid}") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public void saveTeachplan(@PathVariable("move") String direct,@PathVariable("teachplanid") Long teachplanid){//@RequestBody将json转java对象
+
+        teachplanService.remove(direct,teachplanid);
+    }
 }

@@ -56,3 +56,5 @@ PUT {{content_host}}/content/course
 ###
 GET {{content_host}}/content/teachplan/117/tree-nodes
 
+###
+DELETE{{content_host}}/content/teachplan/269

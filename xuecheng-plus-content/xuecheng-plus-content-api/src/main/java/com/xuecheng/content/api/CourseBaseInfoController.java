@@ -59,7 +59,12 @@ public class CourseBaseInfoController {
          Long id = 1232141425L;
         return courseBaseInfoService.updateCourseBase(id,editCourseDto);
     }
-
-
+   // http://localhost:8601/api/content/course/25
+   @ApiOperation("删除课程")
+   @DeleteMapping("/course/{courseid}") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+   public void deleteCourseBase(@PathVariable("courseid") Long courseId){//@RequestBody将json转java对象
+       Long companyid = 1232141425L;
+        courseBaseInfoService.deleteCourseBase(companyid,courseId);
+   }
 
 }
