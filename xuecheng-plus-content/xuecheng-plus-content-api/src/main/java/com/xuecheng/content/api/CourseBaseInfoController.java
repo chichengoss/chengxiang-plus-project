@@ -52,7 +52,7 @@ public class CourseBaseInfoController {
 
         return courseBaseInfoService.getCourseBaseInfoDto(courseId);
     }
-
+//111
     @ApiOperation("修改课程")
     @PutMapping("/course") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
     public CourseBaseInfoDto modifyCourseBase(@RequestBody  EditCourseDto editCourseDto){//@RequestBody将json转java对象
