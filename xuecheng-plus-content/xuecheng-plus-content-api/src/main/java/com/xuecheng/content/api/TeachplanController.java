@@ -1,5 +1,6 @@
 package com.xuecheng.content.api;
 
+import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.SaveTeachplanDto;
 import com.xuecheng.content.model.dto.TeachPlanDto;
 import com.xuecheng.content.service.TeachplanService;
@@ -47,4 +48,26 @@ public class TeachplanController {
 
         teachplanService.remove(direct,teachplanid);
     }
+
+
+    //http://localhost:8601/api/content/teachplan/association/media
+    @ApiOperation("课程计划与媒资信息绑定")
+    @PostMapping("/teachplan/association/media") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public void associationMedia(@RequestBody BindTeachplanMediaDto bindTeachplanMediaDto){//@RequestBody将json转java对象
+
+        teachplanService.associationmedia(bindTeachplanMediaDto);
+
+    }
+
+    //http://localhost:8601/api/content/teachplan/association/media/null/89c10b5fbac406e1cebcb13fad143dd0
+    @ApiOperation("删除课程计划与媒资信息绑定")
+    @DeleteMapping("/teachplan/association/media/{teachPlanId}/{mediaId}") //postMapping用集合接受参数必须要用@Param注解修饰在参数前
+    public void deleteMedia(@PathVariable("mediaId") String mediaId){//@RequestBody将json转java对象
+
+        teachplanService.deletemedia(mediaId);
+
+    }
+
+
+
 }

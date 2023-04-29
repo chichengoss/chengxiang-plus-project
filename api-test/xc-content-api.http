@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ### 查询客场分类
-GET {{content_host}}/content/course-category/tree-nodes
+GET {{gateway_host}}/content/course-category/tree-nodes
 
 <> 2023-03-18T213203.200.json
 

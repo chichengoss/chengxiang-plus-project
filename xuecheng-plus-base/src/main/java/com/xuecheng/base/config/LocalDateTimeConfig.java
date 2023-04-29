@@ -13,13 +13,14 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateTimeConfig {
 
     /*
-     * 序列化内容
+     * 序列化内容xxxxxxxxx序列化内容xxxxxxxxx序列化内容xxxxxxxxx
      *   LocalDateTime -> String
      * 服务端返回给客户端内容
      * */
     @Bean
     public LocalDateTimeSerializer localDateTimeSerializer() {
         return new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        assdad
     }
 
     /*
